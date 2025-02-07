@@ -9,7 +9,7 @@
     chatbotContainer.style.height = '450px';
     chatbotContainer.style.backgroundColor = '#fff';
     chatbotContainer.style.borderRadius = '10px';
-    chatbotContainer.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    chatbotContainer.style.boxShadow = '0 4px 8px rgba(201, 18, 18, 0.32)';
     chatbotContainer.style.display = 'none';  // Initially hidden
     chatbotContainer.style.flexDirection = 'column';
     chatbotContainer.style.zIndex = '9999';
@@ -75,7 +75,7 @@
     closeButton.style.borderRadius = '50%';
     chatbotContainer.appendChild(closeButton);
 
-    // Toggle the chat visibility
+    // Toggle button to show/hide the chatbot
     const toggleButton = document.createElement('button');
     toggleButton.innerHTML = '💬';
     toggleButton.style.position = 'fixed';
@@ -89,14 +89,16 @@
     toggleButton.style.zIndex = '10000';
     document.body.appendChild(toggleButton);
 
-    // Show and hide the chatbot
+    // Show and hide the chatbot (hide when toggle is clicked)
     toggleButton.onclick = () => {
-        chatbotContainer.style.display = chatbotContainer.style.display === 'none' ? 'flex' : 'none';
+        chatbotContainer.style.display = 'flex';  // Show chatbot
+        toggleButton.style.display = 'none';  // Hide the toggle button once clicked
     };
 
-    // Close the chatbot widget
+    // Close the chatbot widget and show the toggle button again
     closeButton.onclick = () => {
-        chatbotContainer.style.display = 'none';
+        chatbotContainer.style.display = 'none';  // Hide chatbot
+        toggleButton.style.display = 'block';  // Show the toggle button again
     };
 
     // Append messages to the chat window
